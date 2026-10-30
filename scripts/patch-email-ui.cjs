@@ -1,0 +1,14 @@
+const fs = require('fs');
+const rep = (s, a, b, l) => { if (!s.includes(a)) throw new Error('missing: ' + l); return s.replace(a, b); };
+let app = fs.readFileSync('components/admin/AdminApp.jsx', 'utf8');
+app = rep(app, "import Budget from './pages/Budget';", "import Budget from './pages/Budget';\nimport { EmailPage } from './pages/Email';", 'import');
+app = rep(app, "['#/sms', 'SMS'],", "['#/sms', 'SMS'], ['#/email', 'Email'],", 'nav');
+app = rep(app, "    case 'sms': page = <SmsLog />; break;", "    case 'sms': page = <SmsLog />; break;\n    case 'email': page = <EmailPage admin={admin} />; break;", 'route');
+fs.writeFileSync('components/admin/AdminApp.jsx', app);
+let L = fs.readFileSync('components/admin/pages/Leads.jsx', 'utf8');
+L = rep(L, "import Rehearse from './Rehearse';", "import Rehearse from './Rehearse';\nimport { ComposeModal } from './Email';", 'import');
+L = rep(L, "<button className=\"btn\" onClick={() => setModal('sms')}>Send SMS</button>", "<button className=\"btn\" onClick={() => setModal('email')}>Send email</button>\n                <button className=\"btn\" onClick={() => setModal('sms')}>Send SMS</button>", 'email button');
+L = rep(L, "{modal === 'sms' &&", "{modal === 'email' && <ComposeModal lead={l} onClose={() => setModal(null)} onSent={() => s.reload(true)} />}\n          {modal === 'sms' &&", 'email modal');
+L = rep(L, "const icon = { note: '📝',", "const icon = { email: '✉️', note: '📝',", 'icon');
+fs.writeFileSync('components/admin/pages/Leads.jsx', L);
+console.log('email ui ok');
