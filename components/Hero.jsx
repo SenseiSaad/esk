@@ -1,6 +1,7 @@
 'use client';
 import { useEffect, useRef } from 'react';
 import { gsap, SplitText, reduced, fine } from '@/lib/gsap';
+import { whatsappUrl } from '@/lib/contact';
 
 const shots = [
   ['thinkwell', 'ThinkWell healthcare platform'],
@@ -72,9 +73,9 @@ export default function Hero() {
           From first sketch to production release, ESK Enterprises builds software people rely on and businesses grow with.
         </p>
         <div className="hero__cta">
-          <button className="btn btn--lime btn--lg" data-magnetic onClick={() => window.dispatchEvent(new Event('esk:brief'))}>
-            Start a project <i>↗</i>
-          </button>
+          <a className="btn btn--lime btn--lg" data-magnetic href={whatsappUrl} target="_blank" rel="noopener noreferrer">
+            WhatsApp us <i>↗</i>
+          </a>
           <a className="btn btn--ghost btn--lg" href="#work" data-magnetic>See our work</a>
         </div>
         <p className="hero__proof">

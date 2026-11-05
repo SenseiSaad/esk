@@ -1,11 +1,12 @@
 'use client';
 import { useEffect, useRef, useState } from 'react';
 import { gsap, ScrollTrigger } from '@/lib/gsap';
+import { whatsappUrl } from '@/lib/contact';
 
 export const Logo = () => (
-  <svg width="30" height="30" viewBox="0 0 32 32" aria-hidden="true">
-    <rect width="32" height="32" rx="9" fill="#0D0D0B" />
-    <path d="M9 9h14M9 16h9M9 23h14" stroke="#D2F53C" strokeWidth="3" strokeLinecap="round" />
+  <svg width="30" height="30" viewBox="0 0 64 64" aria-hidden="true">
+    <rect width="64" height="64" rx="17" fill="#91F500" />
+    <path d="M14 21c1-3 3-5 6-5l27-6c3-.5 4 1 3 4l-1 5c-1 3-3 5-6 6l-27 6c-3 .5-4-1-3-4l1-6Zm0 15c1-3 3-5 6-5l19-4c3-.5 4 1 3 4l-1 5c-1 3-3 5-6 6l-19 4c-3 .5-4-1-3-4l1-6Zm0 15c1-3 3-5 6-5l27-6c3-.5 4 1 3 4l-1 5c-1 3-3 5-6 6l-27 6c-3 .5-4-1-3-4l1-6Z" fill="#0D0D0B" />
   </svg>
 );
 
@@ -44,11 +45,6 @@ export default function Nav() {
     else window.__lenis?.start();
   }, [open]);
 
-  const brief = () => {
-    setOpen(false);
-    window.dispatchEvent(new Event('esk:brief'));
-  };
-
   return (
     <>
       <header className="nav" ref={bar}>
@@ -61,9 +57,9 @@ export default function Nav() {
             <a key={h} href={h}>{t}</a>
           ))}
         </nav>
-        <button className="btn btn--lime nav__cta" onClick={brief} data-magnetic>
-          Start a project <i>↗</i>
-        </button>
+        <a className="btn btn--lime nav__cta" href={whatsappUrl} target="_blank" rel="noopener noreferrer" data-magnetic>
+          WhatsApp us <i>↗</i>
+        </a>
         <button className={`burger ${open ? 'is-open' : ''}`} onClick={() => setOpen(!open)} aria-expanded={open} aria-label="Menu">
           <i /><i />
         </button>
@@ -72,7 +68,7 @@ export default function Nav() {
         {links.map(([t, h], i) => (
           <a key={h} href={h} style={{ '--i': i }}>{t}</a>
         ))}
-        <button className="btn btn--lime" onClick={brief}>Start a project ↗</button>
+        <a className="btn btn--lime" href={whatsappUrl} target="_blank" rel="noopener noreferrer" onClick={() => setOpen(false)}>WhatsApp us ↗</a>
       </div>
     </>
   );

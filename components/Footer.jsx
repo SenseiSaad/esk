@@ -3,6 +3,7 @@ import { useRef } from 'react';
 import { gsap } from '@/lib/gsap';
 import useReveal from '@/lib/useReveal';
 import { Logo } from './Nav';
+import { CONTACT, whatsappUrl } from '@/lib/contact';
 
 export default function Footer() {
   const ref = useRef(null);
@@ -21,6 +22,11 @@ export default function Footer() {
           <a href="#services">Services</a>
           <a href="#industries">Industries</a>
           <a href="#about">Company</a>
+        </nav>
+        <nav className="foot__contact" aria-label="Contact">
+          <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">WhatsApp {CONTACT.whatsappDisplay}</a>
+          {CONTACT.email ? <a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a> : <span>Email address coming soon</span>}
+          <a href={CONTACT.upworkUrl} target="_blank" rel="noopener noreferrer">Upwork profile</a>
         </nav>
       </div>
       <p className="foot__copy mono">© {new Date().getFullYear()} ESK Enterprises. All rights reserved.</p>

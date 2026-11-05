@@ -233,6 +233,9 @@ section { scroll-margin-top: 90px; }
 .cta h2 em { font-size: 1.06em; }
 .cta__p { max-width: 460px; font-size: clamp(16px, 1.4vw, 20px); }
 .cta__note { color: #2b3a00; }
+.cta__contacts { display: flex; flex-wrap: wrap; gap: 8px 22px; color: #2b3a00; font-size: 11px; }
+.cta__contacts a { text-underline-offset: 4px; }
+.cta__contacts a:hover { opacity: 0.65; }
 .cta__orb { position: absolute; z-index: -1; right: -12%; bottom: -30%; width: 70vmin; aspect-ratio: 1; border-radius: 50%; background: radial-gradient(circle at 35% 35%, #fff9, #ffffff00 65%); }
 
 /* ---------- footer ---------- */
@@ -241,24 +244,9 @@ section { scroll-margin-top: 90px; }
 .foot__top p { margin-top: 14px; color: #ffffff88; max-width: 300px; font-size: 15px; }
 .foot nav { display: grid; gap: 6px; font-size: 17px; }
 .foot nav a { color: #ffffffbb; transition: color 0.3s; } .foot nav a:hover { color: var(--lime); }
+.foot__contact span { color: #ffffff88; }
 .foot__big { font-size: 36vw; font-weight: 700; letter-spacing: -0.07em; line-height: 0.72; text-align: center; margin: clamp(10px, 2vw, 30px) 0 -0.06em; color: var(--lime); user-select: none; white-space: nowrap; }
 .foot__copy { color: #ffffff66; padding-top: clamp(36px, 5vw, 64px); display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; border-top: 1px solid #ffffff1a; margin-top: clamp(40px, 6vw, 90px); }
-
-/* ---------- brief dialog ---------- */
-.brief { border: 0; border-radius: var(--r); padding: 0; width: min(560px, calc(100% - 24px)); background: var(--paper); color: var(--ink); margin: auto; }
-.brief::backdrop { background: #0d0d0bb0; backdrop-filter: blur(6px); }
-.brief[open] { animation: pop 0.55s var(--ease); }
-@keyframes pop { from { transform: translateY(40px) scale(0.96); opacity: 0; } }
-.brief form { padding: clamp(24px, 4vw, 40px); display: grid; gap: 16px; position: relative; }
-.brief h2 { font-size: clamp(28px, 4vw, 40px); letter-spacing: -0.045em; margin-bottom: 4px; }
-.brief .eyebrow { margin: 0; }
-.brief label { display: grid; gap: 6px; font: 11.5px var(--mono); text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); }
-.brief input, .brief select, .brief textarea { font: 16px var(--display); text-transform: none; letter-spacing: 0; color: var(--ink); background: #fff; border: 1px solid #0d0d0b1f; border-radius: 14px; padding: 13px 15px; width: 100%; }
-.brief textarea { resize: vertical; }
-.brief .btn { justify-self: start; }
-.brief__x { position: absolute; top: 14px; right: 16px; font-size: 30px; line-height: 1; width: 40px; height: 40px; border-radius: 50%; }
-.brief__x:hover { background: #0d0d0b12; }
-.brief__out { white-space: pre-wrap; font: 12.5px var(--mono); background: #fff; border-radius: 14px; padding: 14px; color: #3b3a35; }
 
 /* ---------- responsive ---------- */
 @media (max-width: 1024px) {
@@ -378,8 +366,6 @@ section { scroll-margin-top: 90px; }
   .foot nav { font-size: 15px; }
   .foot__copy { font-size: 10px; margin-top: 28px; padding-top: 22px; }
 
-  .brief form { padding: 22px 18px; gap: 13px; }
-  .brief h2 { font-size: 26px; }
 }
 @media (max-width: 480px) {
   .proc__steps { grid-template-columns: 1fr 1fr; }
@@ -406,16 +392,6 @@ section { scroll-margin-top: 90px; }
 .va__b--p { background: #d2f53c; color: #0d0d0b; justify-self: end; border-bottom-right-radius: 4px; }
 .va__chips { display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto; }
 .va__chips span { padding: 4px 10px; border-radius: 999px; border: 1px solid #ffffff2e; font: 9.5px var(--mono); letter-spacing: 0.06em; text-transform: uppercase; color: #ffffffb8; }
-.brief .row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-.brief .hp { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
-.brief__err { color: #b3261e; font-size: 14px; margin: 0; }
-.brief__ok { display: grid; gap: 10px; padding: 8px 0; }
-.brief__ok h2 { font-size: clamp(28px, 4vw, 40px); }
-.brief__ok p { color: #4a4943; }
-@media (max-width: 560px) { .brief .row { grid-template-columns: 1fr; } }
-
-.brief .consent { display: flex; gap: 10px; align-items: flex-start; text-transform: none; letter-spacing: 0; font: 13px/1.4 var(--display); color: var(--muted); }
-.brief .consent input { width: auto; margin-top: 3px; }
 
 /* LMS card art */
 .wcard__mock:has(.lmsart) { background: #0a1c2f; }

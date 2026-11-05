@@ -11,7 +11,6 @@ import Lab from '@/components/Lab';
 import Process from '@/components/Process';
 import Cta from '@/components/Cta';
 import Footer from '@/components/Footer';
-import Brief from '@/components/Brief';
 
 export default function Home() {
   return (
@@ -31,7 +30,6 @@ export default function Home() {
         <Cta />
       </main>
       <Footer />
-      <Brief />
     </>
   );
 }
