@@ -1,6 +1,6 @@
 # dependencies
 node_modules/
-
+#test
 # next.js build output
 .next/
 out/
